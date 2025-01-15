@@ -4,7 +4,6 @@
         <div style="font-size: 13px;">{{ name }}</div>
     </div>
 </template>
-
 <script setup lang="ts">
 import SparkMD5 from 'spark-md5'
 import { onMounted, ref } from 'vue'
