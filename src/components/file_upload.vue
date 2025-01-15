@@ -1,5 +1,5 @@
 <template>
-    <div ref="b" class="filecla" style="position: relative;">
+    <div ref="b" class="filestyle" style="position: relative;">
         <input type="file" ref="a" style="display:none;position: absolute;top: 0px;" />
         <div style="font-size: 13px;">{{ name }}</div>
     </div>
@@ -80,15 +80,15 @@ onMounted(() => {
 })
 </script>
 <style scoped>
-.filecla {
-    width:fit-content;
+.filestyle {
+    width: fit-content;
     box-shadow: 1px 1px 5px rgb(81, 69, 69);
     border-radius: 12px;
     padding: 5px 5px 5px 5px;
     background-color: white;
 }
 
-.filecla:hover {
+.filestyle:hover {
     background: #ddd;
 }
 
