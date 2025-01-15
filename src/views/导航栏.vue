@@ -23,7 +23,7 @@
 <script setup lang="js">
 import file_upload from '@/components/file_upload.vue';
 import WebWorker from '@/components/WebWorker.vue';
-let list = ['HTML', 'TS', 'CSS', 'ES6', 'WEBSOCKET', 'VUE3']
+let list = ['HTML', 'TS', 'CSS', 'ES6', 'WEBWORKER', 'VUE3']
 </script>
 <style scoped lang="scss">
 @import url();
