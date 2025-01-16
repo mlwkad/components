@@ -2,6 +2,7 @@
     <div ref="el" id="el" style="height: 330px;width: auto;" class="echarts"></div>
 </template>
 <script setup lang="ts">
+let click_times = ref(0)
 import { onMounted, ref } from 'vue';
 //1.引入Echarts  npm install echarts
 import * as echarts from 'echarts'
@@ -18,7 +19,7 @@ useResizeObserver(el, () => {
 })
 
 //3.图表
-onMounted(() => {
+let chart = () => {
     let mychart0: any = document.getElementById('el')
     let mychart1 = echarts.init(mychart0)
     var option = {
@@ -51,7 +52,7 @@ onMounted(() => {
             // hideDelay:'200',  //延时隐藏
             axisPointer: {
                 // type:'cross|shadow',  //十字/区间的详细信息
-                type: 'cross',
+                type: 'shadow',
                 // axis:'x|y'  //切换主轴
             },
         },
@@ -74,16 +75,23 @@ onMounted(() => {
         xAxis: {
             // position:'top',
             type: 'category',  //类型:按category(种类)分,data有几个,series就显示几个数据
-            boundaryGap: true,  //区间定位
-            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+            boundaryGap: false,  //区间定位
+            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Today']
         },
         yAxis: [
             {
                 axisLabel: {
                     formatter: '{value}个'
+                },
+                splitLine: {
+                    show: false // 关闭背景中的横线
                 }
             },
-            {}
+            {
+                axisLabel: {
+                    formatter: '{value}元'
+                },
+            }
         ],
         series: [
             {
@@ -96,11 +104,22 @@ onMounted(() => {
                 name: '销量',
                 type: 'line',
                 yAxisIndex: 1,
-                data: [82000, 93200, 90100, 93400, 129000, 133000, 132000]
+                data: [82000, 93200, 90100, 93400, 129000, 133000, click_times.value]
             }
         ]
     }
     option && mychart1.setOption(option);
+}
+
+//4.启动
+onMounted(() => {
+    chart()
+    //记录点击量:点击某个元素时触发事件:通过接口告诉后端哪个元素被点击了并计数
+    //整个文档添加点击事件
+    document.addEventListener('click', () => {
+        click_times.value += 99999
+        chart()
+    })
 })
 </script>
 <style scoped>
