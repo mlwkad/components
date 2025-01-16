@@ -9,7 +9,6 @@ import * as echarts from 'echarts'
 
 //2.实现响应式  npm install @vueuse/core
 import { useResizeObserver } from '@vueuse/core/index.cjs';
-import LeftTable from 'element-plus/es/components/table-v2/src/renderers/left-table.mjs';
 let el = ref()
 //监视该元素,尺寸变化时触发回调
 useResizeObserver(el, () => {
