@@ -7,6 +7,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    Echarts: typeof import('./src/components/Echarts.vue')['default']
     ElCol: typeof import('element-plus/es')['ElCol']
     ElRow: typeof import('element-plus/es')['ElRow']
     File_upload: typeof import('./src/components/file_upload.vue')['default']

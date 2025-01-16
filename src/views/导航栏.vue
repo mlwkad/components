@@ -19,10 +19,14 @@
     <div class="public-position">
         <WebWorker></WebWorker>
     </div>
+    <div class="public-position">
+        <Echarts></Echarts>
+    </div>
 </template>
 <script setup lang="js">
 import file_upload from '@/components/file_upload.vue';
 import WebWorker from '@/components/WebWorker.vue';
+import Echarts from '@/components/Echarts.vue';
 let list = ['HTML', 'TS', 'CSS', 'ES6', 'WEBWORKER', 'VUE3']
 </script>
 <style scoped lang="scss">
