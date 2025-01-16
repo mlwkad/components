@@ -78,6 +78,7 @@ onMounted(() => {
         name.value = a.value.files[0].name
     }
 })
+//断点续传思路:为每个片段生成相应hash值,上传成功就在本地(随便哪里)保存其hash值,后续上传中断重新上传时通过对比每一段的hash值来判断是否上传
 </script>
 <style scoped>
 .filestyle {
