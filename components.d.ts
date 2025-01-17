@@ -11,6 +11,7 @@ declare module 'vue' {
     ElCol: typeof import('element-plus/es')['ElCol']
     ElRow: typeof import('element-plus/es')['ElRow']
     File_upload: typeof import('./src/components/file_upload.vue')['default']
+    OverTimeData: typeof import('./src/components/overTimeData.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     WebWorker: typeof import('./src/components/WebWorker.vue')['default']

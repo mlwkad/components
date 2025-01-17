@@ -22,11 +22,15 @@
     <div class="public-position">
         <Echarts></Echarts>
     </div>
+    <div class="public-position">
+        <overTimeData />
+    </div>
 </template>
 <script setup lang="js">
 import file_upload from '@/components/file_upload.vue';
 import WebWorker from '@/components/WebWorker.vue';
 import Echarts from '@/components/Echarts.vue';
+import overTimeData from '@/components/overTimeData.vue';
 let list = ['HTML', 'TS', 'CSS', 'ES6', 'WEBWORKER', 'VUE3']
 </script>
 <style scoped lang="scss">
