@@ -19,6 +19,7 @@
     <div class="public-position">
         <WebWorker></WebWorker>
     </div>
+    666
 </template>
 <script setup lang="js">
 import file_upload from '@/components/file_upload.vue';
