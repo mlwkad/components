@@ -14,6 +14,7 @@ declare module 'vue' {
     OverTimeData: typeof import('./src/components/overTimeData.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Web_Security: typeof import('./src/components/Web_Security.vue')['default']
     WebWorker: typeof import('./src/components/WebWorker.vue')['default']
   }
 }
