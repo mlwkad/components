@@ -25,7 +25,6 @@
     <div class="public-position">
         <overTimeData />
     </div>
-    555
 </template>
 <script setup lang="js">
 import file_upload from '@/components/file_upload.vue';
