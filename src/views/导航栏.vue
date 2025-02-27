@@ -43,9 +43,6 @@
     <div class="public-position" ref="A">
         <Echarts></Echarts>
     </div>
-    <div class="public-position" ref="B">
-        <overTimeData />
-    </div>
     <div class="public-position" ref="D">
         <overTimeData />
     </div>
