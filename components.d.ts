@@ -8,13 +8,15 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     Echarts: typeof import('./src/components/Echarts.vue')['default']
+    ElAvatar: typeof import('element-plus/es')['ElAvatar']
+    ElCard: typeof import('element-plus/es')['ElCard']
     ElCol: typeof import('element-plus/es')['ElCol']
+    ElIcon: typeof import('element-plus/es')['ElIcon']
     ElRow: typeof import('element-plus/es')['ElRow']
     File_upload: typeof import('./src/components/file_upload.vue')['default']
     OverTimeData: typeof import('./src/components/overTimeData.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    Web_Security: typeof import('./src/components/Web_Security.vue')['default']
     WebWorker: typeof import('./src/components/WebWorker.vue')['default']
   }
 }

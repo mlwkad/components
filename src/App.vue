@@ -5,8 +5,7 @@
 </script>
 <style>
 body {
-  background-color: rgb(161, 184, 206);
   margin: 0;
   padding: 0;
-}
+background-color: rgb(54, 54, 54);}
 </style>
