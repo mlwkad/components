@@ -1,17 +1,19 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import router from './router'
-import App from './App.vue'
-//@ts-ignore
+import App from './App.vue'//@ts-ignore
 import piniaPersist from 'pinia-plugin-persist'
+import { useIntersectionObserver } from '@vueuse/core'//@ts-ignore
+import USEI18N from '@/utils/i18n/usei18n'//@ts-ignore
 const app = createApp(App)
 const pinia = createPinia()
 pinia.use(piniaPersist)
 app.use(pinia)
 app.use(router)
-app.mount('#app')
-import { useIntersectionObserver } from '@vueuse/core'
+app.use(USEI18N)
+
 //app.directive('xx',{生命周期(){}})
+// 懒加载图片
 app.directive('lazyimg', {  //创建 v-lazyimg 指令
     mounted(el) {  //指令在元素挂载后执行,el就是被绑定的元素
         //1.缓存图片的网址
@@ -30,3 +32,22 @@ app.directive('lazyimg', {  //创建 v-lazyimg 指令
         })
     }
 })
+// 淡入动画
+app.directive('SiHuaJinRu', {
+    mounted(el) {
+        const { stop } = useIntersectionObserver(el, ([{ isIntersecting }]) => {  //元素每次将要显示或者被隐藏时触发
+            //stop()//停止监视元素(只监视一次),不写就是一直监视元素
+            if (isIntersecting) {
+                el.classList.add('fade-in-animation')  //具体的样式就写在组件里就行
+                // element.classList.remove('fade-out-animation')
+            }
+            else {  //视为不显示时
+                // element.classList.add('fade-out-animation')
+                el.classList.remove('fade-in-animation')
+                el.style.opacity = '0'  //关键:设为透明防频闪
+            }
+        }, { threshold: 0.15 })  //显示元素的百分之多少时,视为组件将要显示
+    }
+})
+
+app.mount('#app')
