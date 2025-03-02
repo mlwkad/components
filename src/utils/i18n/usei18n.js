@@ -3,6 +3,7 @@
 // json文件放语言 
 // 配置i18n
 // 在main.js中引入
+//.vscode/settings.json 配置i18n-ally   
 import { createI18n } from 'vue-i18n'
 import zh from './zh'
 import en from './en'
