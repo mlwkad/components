@@ -38,7 +38,7 @@ app.directive('SiHuaJinRu', {
         const { stop } = useIntersectionObserver(el, ([{ isIntersecting }]) => {  //元素每次将要显示或者被隐藏时触发
             //stop()//停止监视元素(只监视一次),不写就是一直监视元素
             if (isIntersecting) {
-                el.classList.add('fade-in-animation')  //具体的样式就写在组件里就行
+                el.classList.add('fade-in-animation')  //该样式只写在 使用该指令的组件里
                 // element.classList.remove('fade-out-animation')
             }
             else {  //视为不显示时

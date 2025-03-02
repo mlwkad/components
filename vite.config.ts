@@ -5,9 +5,13 @@ import AutoImport from 'unplugin-auto-import/vite'  //8
 import path from 'path';
 import Components from 'unplugin-vue-components/vite';  //9
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+import { visualizer } from 'rollup-plugin-visualizer'
+import compression from 'vite-plugin-compression'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
+    //npm install rollup-plugin-visualizer --save-dev
+    visualizer({ open: true }),  //打包分析
     vue(),
     AutoImport({  //8
       resolvers: [ElementPlusResolver()],  //10.自动导入组件
@@ -15,6 +19,10 @@ export default defineConfig({
     }),
     Components({  //9
       resolvers: [ElementPlusResolver()]  //10.自动按需加载组件
+    }),
+    compression({  //npm i vite-plugin-compression --save-dev  gzip压缩
+      threshold: 10240,  //10kb
+      algorithm: 'gzip'
     })
   ],
   resolve: {
@@ -26,6 +34,23 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': 'http://testapi.xuexiluxian.cn'  //其他请求为/api/...时,被代理成http://testapi.xuexiluxian.cn/api/...
+    }
+  },
+  build: {
+    rollupOptions: {
+      output: {
+        //   manualChunks(id) {
+        //     if (id.includes('src')) {
+        //       return 'business'
+        //     }
+        //     else {
+        //       console.log(id)  //其他默认打包到
+        //     }
+        //   },
+        manualChunks: {
+          'chunk-vendors': ['vue', 'vue-router', 'pinia', 'axios', 'element-plus', '@vueuse/core', 'vue-i18n']
+        }
+      }
     }
   }
 })
